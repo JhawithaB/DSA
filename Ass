@@ -1,0 +1,113 @@
+
+package queueassignment;
+import java.util.ArrayDeque;
+import java.util.Scanner;
+/**
+ *
+ * @author user
+ */
+public class QueueAssignment {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        ArrayDeque<String> carsArr= new ArrayDeque<>();
+     /* carsArr.offer("");
+        carsArr.offer("");
+        carsArr.offer("");
+        carsArr.offer("");
+        carsArr.offer("");*/
+        
+        Scanner Scan= new Scanner(System.in);
+    while(true){    
+        System.out.println("----WELCOME TO YOUR NAME'S CARWASH-----");
+               System.out.println("1. Add New CAr\n"
+               +"2. Remove First Car\n"
+               +"3. Search for a Car\n"
+               +"4. Empty Car Queue\n"
+               +"5. Display All Cars\n"
+               +"6. Exit");
+        
+       int choice;        
+        System.out.print("Enter Your Choice: ");
+        choice= Scan.nextInt();
+        Scan.nextLine();
+       
+        switch (choice){
+            case 1:        String carAdd="";
+                System.out.print("Enter A Car: ");
+                carAdd= Scan.nextLine();
+                
+                if (carsArr.contains(carAdd)){
+                
+                            System.out.println( carAdd + "already exists in the queue.");
+                        }
+                     else {
+                    carsArr.offer(carAdd);
+                        System.out.println( carAdd + " is added to the queue.");
+                    }
+                
+                break;
+            case 2:    String removedCar = carsArr.poll();
+                    if (removedCar != null) {
+                        System.out.print( removedCar + " will be remove. Do you want to proceed?\n 1-Yes\n 2-No\n Choice: ");
+                        int pollChoice = Scan.nextInt();
+                        if (pollChoice == 1) {
+                            System.out.println("Car " + removedCar + " successfully removed from the queue.");
+                        } 
+                        
+                    }
+                break;
+            case 3:       String searchcar="";
+                              System.out.print("Enter A Car to Search: ");
+                              searchcar=Scan.nextLine();
+
+             //   boolean search = carsArr.contains(searchcar);
+               
+                if (carsArr.contains(searchcar)){
+                    System.out.println(searchcar + "Car  Found");
+                }
+                else{
+             System.out.println(searchcar + "Car not Found");
+
+                }
+                break;
+            case 4:   int clearchoice; 
+                System.out.print("Are you Sure you want to Delete all Cars?\n 1-Yes\n 2-No\n Choice: ");
+                clearchoice=Scan.nextInt();
+                
+                if (clearchoice==1){
+                    carsArr.clear();
+                    System.out.println("All cars are removed!");
+                    
+                }
+                else{
+             System.out.println("Clear Canceled!");
+
+                }
+                
+
+                break;
+            case 5:
+                
+          System.out.println("Cars in the Queue are: "+ carsArr);
+
+                break;
+            case 6:    System.out.println("Exiting the program.");
+                    Scan.close();
+                    return; 
+
+                default:
+                    System.out.println("Invalid choice! Please select a valid option.");
+         
+        
+
+        
+    }
+ 
+        
+    }
+      }
+}
